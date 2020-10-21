@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Title</title>
+<style>
+
+.head{
+color:#0B5E4A;
+font-size:40px;
+text-align:center;
+margin-top:30px;
+text-shadow:2px 2px 4px gray ;
+}
+
+.images1{
+margin-top:20px;
+}
+.imag1{
+max-width:100%;
+box-shadow:15px 15px 30px gray ;
+margin-top:20px;
+margin-bottom:20px;
+}
+#fig1{
+
+     font-size:50px;
+     color:black;
+     text-align:center;
+     text-shadow:2px 2px 4px gray ;
+}
+
+.images2{
+     margin-top:100px;
+     display:flex;   
+}
+.imag2{
+max-width:45%;
+box-shadow:15px 15px 30px gray ;
+margin-top:20px;
+margin-left:40px;
+}
+#name1{
+     margin-left:20%;
+     
+}
+#name2{
+     margin-left:35%;
+}
+.fig2{
+     font-size:30px;
+     color:black;
+     text-align:left;
+     text-shadow:2px 2px 4px gray ;
+     margin-top:10px;
+     margin-bottom:60px;
+     display:flex;   
+}
+.info{
+margin-top:40px;
+background-color:transparent;
+color:black;
+font-size: 15px;
+
+padding-top:30px;
+padding-bottom: 30px;
+
+}
+th,td{
+     padding:20px;
+     
+}
+.images3{
+margin-top:100px;
+display:flex;
+margin-left:20px; 
+}
+.imag3{
+max-width:30%;
+box-shadow:15px 15px 30px gray ;
+margin-top:20px;
+margin-left:20px;
+}
+.fig3{
+
+     font-size:30px;
+     color:black;
+     text-align:left;
+     text-shadow:2px 2px 4px gray ;
+     margin-top:10px;
+     margin-bottom:60px;
+     display:flex;
+}
+#name3{
+     margin-left:10%;
+}
+#name4{
+     margin-left:17%;
+}
+#name5{
+     margin-left:16%;
+}
+
+</style>
+</head>
+   <body>
+     <div class="head">Low light Image Enhancement</div>
+     <div class="images1"> 
+     <figcaption id="fig1">Input image</figcaption>
+     <img src="{{url_for('static', filename='inputs/'+image_name)}}" class="imag1"/>
+     
+     <figcaption id="fig1">Preprocessed image</figcaption>
+     <img src="{{url_for('static', filename='preprocessed/'+image_name)}}" class="imag1"/>
+
+     <figcaption id="fig1">Output image</figcaption>
+     <img src="{{url_for('static', filename='outputs/'+image_name)}}" class="imag1"/>
+     </div>  
+
+     <div class="images3">  
+          <img src="{{url_for('static', filename='inputs/'+image_name)}}" class="imag3"/>
+          <img src="{{url_for('static', filename='preprocessed/'+image_name)}}" class="imag3"/>
+          <img src="{{url_for('static', filename='outputs/'+image_name)}}" class="imag3"/>
+     </div>  
+     <div class="fig3">
+          <figcaption id="name3">Input image</figcaption>
+          <figcaption id="name4">Preprocessed image</figcaption>
+          <figcaption id="name5">Output image</figcaption>
+     </div>
+
+   <div class="images2">
+   <img src="{{url_for('static', filename='outputs/'+image_name)}}" class="imag2"/>
+   <img src="{{url_for('static', filename='reference/'+image_name)}}" class="imag2"/>
+   </div>
+   
+     <div class="fig2">
+     <figcaption id="name1">Output image</figcaption>
+     <figcaption id="name2">Reference image</figcaption>
+     </div>
+
+    
+    
+         <table class="info">
+              <tr>
+                   <th>ID</th>
+                   <th>Input Image</th>
+                   <th>Output Image</th>
+                   <th>Reference Image</th>
+                   <th>Exposure time of Input</th>
+                   <th>Exposure time of Reference</th>
+                   <th>Loss</th>
+                   <th>Resolution</th>
+                   <th>Size</th>
+                   <th>Aspect Ratio</th>
+                   <th>Format</th>
+              </tr>
+              <tr>
+                   <td>{{id}}</td>
+                   <td>{{in_name}}</td>
+                   <td>{{image_name}}</td>
+                   <td>{{gt_name}}</td>
+                   <td>{{in_ex}}</td>
+                   <td>{{gt_ex}}</td>
+                   <td style="color:red;">{{loss}}</td>
+                   <td>4240 X 2832</td>
+                   <td>24MB</td>
+                   <td>265 : 177</td>
+                   <td>RGBA</td>
+              </tr>
+         </table>
+    
+     
+
+
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">    
+<Title>Upload</Title>
+<style>
+
+.body{
+background:url("../static/images/pexels-photo-2748757.jpeg") ;
+background-repeat:no-repeat;
+background-size:cover;
+}
+
+.head{
+color:#0B5E4A;
+font-size:60px;
+text-align:center;
+margin-top:30px;
+text-shadow:2px 2px 4px gray ;
+}
+
+.in{
+background-color:#FFFAF0;
+height:350px;
+width:50%;	
+box-shadow:2px 2px 5px grey;
+border-radius:10px;
+margin-left:25%;
+margin-top:120px;;
+}
+
+input[type="file"]{
+display:none;
+}
+
+#btn-select{
+color:white;
+height: 35px;
+width:150px;
+background-color:#2E8973;
+font-size:15px;
+padding: 5px;
+float:left;
+margin-left:50px;
+margin-top:30px;
+border:none;
+border-radius:3px;
+box-shadow:2px 2px 5px  grey;
+}
+
+#btn-select:hover{
+box-shadow:2px 2px 5px  black;
+
+}
+.file-path-wrapper{
+float:left;
+margin-left:10px;
+margin-top: 50px;
+}
+.file-path{
+  font-size: 15px;
+  border:none;
+  background-color:transparent;
+  height:20px;
+  border-bottom:1px solid grey;
+  width:250px;
+ text-align: left;
+ color:red;
+}
+#btn{
+height:40px;
+width:80px;
+background-color:#03B1AE;
+border:none;
+border-radius:3px;
+box-shadow:2px 2px 5px grey;
+margin-right:50px ;
+margin-top: 35px;
+color: white;
+
+}
+
+#btn:hover{
+box-shadow:2px 2px 5px  black;
+}
+
+.loader-div{
+
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 110px;
+}
+
+.loader {
+  margin-left:45%;
+  margin-top:5%;
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #3498db;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+#name{
+padding-top:40px;
+font-size:15px;
+color:blue;
+}
+
+
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+</style>
+</head>
+   <body  class="body" height="100%" width="100%">
+	<div class="head">Low light Image Enhancement<div>
+	<div class="in">
+      <form action = "http://localhost:5000/upload" method = "POST"  enctype = "multipart/form-data" >
+        <input type = "file" name = "file" onchange="fileName()" id="file">
+        <label for="file" id="btn-select"><strong>Select a raw image</strong></label>
+          <button  onclick="loaderFunction()" type = "submit"  id="btn">Process</button>
+         <div class="file-path-wrapper">
+          <div class="file-path validate" type="text" id="file-path"></div>
+        </div>
+      </form>
+	<div id="name" ></div>
+       <div id="load-div" >
+	<div id="load" ></div>
+	 </div>
+	
+   	</div>
+       
+	
+<script type="text/javascript">
+function loaderFunction() {
+console.log("loaderfunction::::");
+var x = document.getElementById("load-div").className="loader-div";
+var y = document.getElementById("load").className="loader";
+}
+
+function fileName() {
+  var str = document.getElementById("file").value;
+  var z = str.slice(12); 
+  document.getElementById("name").innerHTML = z + "  this file is selected to process";
+  document.getElementById("file-path").innerHTML = z;
+}
+</script>	
+</body>
+</html>
